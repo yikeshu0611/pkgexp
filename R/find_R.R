@@ -71,7 +71,7 @@ find_R <- function(repo,query,logical=c('all','any'),local=NULL){
                 if (j==1) check=c()
                 check=c(check,grepl(query[j],content))
             }
-            check.p=paste0(logical,'(',check,')')
+            check.p=paste0(logical,'(c(',paste0(check,collapse = ','),'))')
             if (eval(parse(text = check.p))) res=c(res,title[i])
         }
         res
